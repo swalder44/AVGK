@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVGK", "AVGK\AVGK.csproj", "{041B063E-994C-49C0-B53E-F84047C2046A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCPSoapClientForm", "WCPSoapClientForm\WCPSoapClientForm\WCPSoapClientForm.csproj", "{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		APVGK|Any CPU = APVGK|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{041B063E-994C-49C0-B53E-F84047C2046A}.APVGK|Any CPU.ActiveCfg = APVGK|Any CPU
+		{041B063E-994C-49C0-B53E-F84047C2046A}.APVGK|Any CPU.Build.0 = APVGK|Any CPU
+		{041B063E-994C-49C0-B53E-F84047C2046A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041B063E-994C-49C0-B53E-F84047C2046A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041B063E-994C-49C0-B53E-F84047C2046A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041B063E-994C-49C0-B53E-F84047C2046A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.APVGK|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.APVGK|Any CPU.Build.0 = Debug|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4DF202-FCBB-4090-BED2-7F7FA49CCB3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06D6806B-F638-4CB2-8313-5A0420A13ADB}
+	EndGlobalSection
+EndGlobal

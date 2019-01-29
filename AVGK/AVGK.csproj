@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{041B063E-994C-49C0-B53E-F84047C2046A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AVGK</RootNamespace>
+    <AssemblyName>AVGK</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'APVGK|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\APVGK\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AVGK.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>car.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AlphaBlendTextBox, Version=1.0.1270.35793, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AlphaBlendTextBox.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.1.3\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Mono.Security.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySqlLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySqlLib.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Core">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Data">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Xml">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcroFieldsExtension.cs" />
+    <Compile Include="AKT_PDF.cs" />
+    <Compile Include="AKT_PDF_New.cs" />
+    <Compile Include="AutoPDF.cs" />
+    <Compile Include="AutoPDFCL.cs" />
+    <Compile Include="BrightnessContrast.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ColorBalance.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ConnectStr.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAD.Designer.cs">
+      <DependentUpon>FormAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFiltrM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFiltrM.Designer.cs">
+      <DependentUpon>FormFiltrM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKartMonit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKartMonit.Designer.cs">
+      <DependentUpon>FormKartMonit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKlass.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormKlass.Designer.cs">
+      <DependentUpon>FormKlass.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormMDisl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMDisl.Designer.cs">
+      <DependentUpon>FormMDisl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNARUSH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNARUSH.Designer.cs">
+      <DependentUpon>FormNARUSH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNastrPuti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNastrPuti.Designer.cs">
+      <DependentUpon>FormNastrPuti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPDKO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPDKO.Designer.cs">
+      <DependentUpon>FormPDKO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPDKObM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPDKObM.Designer.cs">
+      <DependentUpon>FormPDKObM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPic.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormPic.designer.cs">
+      <DependentUpon>FormPic.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormRaspolRub.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormRaspolRub.Designer.cs">
+      <DependentUpon>FormRaspolRub.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormStrPodkl.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormStrPodkl.Designer.cs">
+      <DependentUpon>FormStrPodkl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FormZAGR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZAGR.Designer.cs">
+      <DependentUpon>FormZAGR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatricaSvertki.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="ModelsAngel.cs" />
+    <Compile Include="PdfReaderExtension.cs" />
+    <Compile Include="Program.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpetsRazrVKL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpetsRazrVKL.Designer.cs">
+      <DependentUpon>SpetsRazrVKL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsUpd.cs" />
+    <Compile Include="Zapros.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <EmbeddedResource Include="FormZAGR.resx">
+      <DependentUpon>FormZAGR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpetsRazrVKL.resx">
+      <DependentUpon>SpetsRazrVKL.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAD.resx">
+      <DependentUpon>FormAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFiltrM.resx">
+      <DependentUpon>FormFiltrM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKartMonit.resx">
+      <DependentUpon>FormKartMonit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKlass.resx">
+      <DependentUpon>FormKlass.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMDisl.resx">
+      <DependentUpon>FormMDisl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNARUSH.resx">
+      <DependentUpon>FormNARUSH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNastrPuti.resx">
+      <DependentUpon>FormNastrPuti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPDKO.resx">
+      <DependentUpon>FormPDKO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPDKObM.resx">
+      <DependentUpon>FormPDKObM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPic.resx">
+      <DependentUpon>FormPic.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRaspolRub.resx">
+      <DependentUpon>FormRaspolRub.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStrPodkl.resx">
+      <DependentUpon>FormStrPodkl.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.jpg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\40.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\414.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\639_0_84970aa3733001eabd85d2905dd99f57.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1539_al.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1539_all-russia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1539_all-russia222.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1920_1080_20091225101608647778.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3376К.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3376Ч.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3694-scroll-arrow-to-right1-200x200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3694-scroll-arrow-to-right1-200x200123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19544.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33777К1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33777К2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33777Ч1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33777Ч2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57501b07e175415510e996f3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\160213.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11181495-Truck-icon-Stock-Vector-lorry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25427546-vector-truck-wheel-black-white-symbol-Stock-Photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25427546-vector-truck-wheel-black-white-symbol-Stock-PhotoRED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\41421943ya3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13545253226283.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16021322025924c1a3a1defce892c4a2f5b94a2d177d.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\advanced_futuristic_orb_by_seiorai-d31ydqh.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Anselmus-Green-Checkmark-and-Red-Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arkaplan_yesilbeyaz29052014_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-clipart-arrow-graphics-yVzVew-clipart_6634.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blog-background-white-HNM-blue-gradient-blue-gear-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRACKET.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRACKET_Z.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\can-stock-photo_csp3195656.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Colorful %2841%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colorful-70.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cropped-Blue-Gradient-Background-HD-Wallpaper1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_12105984-stock-illustration-black-glossy-refracting-sphere-vector.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e396da7f9aa3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fas1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Glossy glass sphere_11517.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gradient-linii-devis-central-less-8d66944.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green-light-tick-mark-clip-art-at-clker-com-vector-clip-art-online-XAxX71-clipart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grey-gradient-background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Left_wiki_bracket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line-Luz-ondulado-Neon-1920x1440.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nom1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oboik.ru_35321.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photoshop-glyancevaya-knopka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ramka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sphere-20clipart-106.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sst %2830%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sst %28301%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stock-vector-trucks-set-vector-153076187.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_exit_1195.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_blank_green_14986.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_blank_red_14987.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_blank_yellow_14988.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_delete_delete_theaction_theoutput_10252.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desable_server_icon-icons.com_76719.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layers_icon-icons.com_74900.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_icon-icons.com_51025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OSX_icon-icons.com_76520.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop_stop_exit_270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\182.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_17886.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\large-Gray-Rounded-Button-0-89960.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pi5MKo6zT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reboot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shutdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Кнопка-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_14abee_caa8293_orig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\54138-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\59725d642467315d66bccf35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\223133_1411410693.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20506335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23007901.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88402656_0890d5e6098e42967412c36173cd9823.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88402753_7668c3e942006cdaf4354f09a6636c8f.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88403145_dde88073ae010650a8453ae603b170e5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88403235_edaeaf87f9800319fa030ae32d6ba362.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golden-sparkle-background_1048-178.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_bok2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\postbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snowflakes-falling-png-8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_5907908a1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5f48784f4a9be8fc2920a415a91981a0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18695.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\34627-run-400x400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13544989218424.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aiq6d9qqT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-model-synchronization.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dc6Xd9kMi %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dc6Xd9kMi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-data-database-16876735.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joomla-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\led-rounded-h-black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lockstart_session.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no-translate-detected_318-61166.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tex_but_10_55715.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tex-but-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7bd6a91d12e3bf398702a83fec2a7e37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\512x512bb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1484731955_kak-otkryt-doc-format-onlayn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf_icon20141029-9063-1xz288w_960x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdf-file-png-image-29431.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\w256h2561387214964PDFViewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="car.ico" />
+    <Content Include="delivery-truck.ico" />
+    <Content Include="Fill PDF Template.csproj" />
+    <None Include="Resources\3floppy_mount.png" />
+    <None Include="Resources\bigstock-Save-Green-Button-5526467.jpg" />
+    <None Include="Resources\disk.png" />
+    <None Include="Resources\microsoftofficeword_11629.png" />
+    <None Include="Resources\shutterstock_96131531-1-2.jpg" />
+    <None Include="Resources\software-development.png" />
+    <Content Include="tractorunitblack.ico" />
+    <Content Include="truck.ico" />
+    <None Include="Resources\1539_222.jpg" />
+    <None Include="Resources\PRINT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCPSoapClientForm\WCPSoapClientForm\WCPSoapClientForm.csproj">
+      <Project>{dc4df202-fcbb-4090-bed2-7f7fa49ccb3b}</Project>
+      <Name>WCPSoapClientForm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

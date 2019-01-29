@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/" name="SOAPRequestService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Check">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="request" type="tns:CheckRequestData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="CheckResult" type="tns:CheckResultDataList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WriteOfTrip">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="WriteOff" type="tns:WriteOfTripDataRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="WriteOfTripResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="WriteOfTripResult" type="tns:WriteOffAnswerData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CheckRequestData">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="CheckDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="CheckPointCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="VehicleRegNumber" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Direction" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Latitude" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Longitude" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TotalWeight" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesCount" type="tns:ArrayOfInt32" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesLoads" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesInvervals" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TotalSize" type="tns:CheckRequestDataTotalSize" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckResultDataList">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckResultData" nillable="true" type="tns:CheckResultData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WriteOfTripDataRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DocumentNumber" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DocumentDateSign" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="CheckPointCode" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Direction" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TotalWeight" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesCount" type="tns:ArrayOfInt32" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesLoads" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesInvervals" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TotalSize" type="tns:CheckRequestDataTotalSize" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TripDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WriteOffAnswerData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DocumentNumber" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DocumentDateSign" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="WriteOffResolution" type="tns:EnumWriteOffResolution" />
+          <xs:element minOccurs="1" maxOccurs="1" name="WriteOffResolutionToInt" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfInt32">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDecimal">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="decimal" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckRequestDataTotalSize">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Width" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Height" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckResultData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Resolution" type="tns:CheckResultDataCheckResultDataItemResolution" />
+          <xs:element minOccurs="1" maxOccurs="1" name="TripCount" type="xs:int" />
+          <xs:element minOccurs="1" maxOccurs="1" name="LeftTripCount" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Route" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="RouteCheck" type="tns:CheckResultDataCheckResultDataItemRouteCheck" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DateFrom" type="xs:dateTime" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DateTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="VehicleRegNumber" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Transporter" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="TransporterAddress" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="FullWeight" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Dimensions" type="tns:CheckResultDataCheckResultDataItemDimensions" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesLoads" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesInvervals" type="tns:ArrayOfDecimal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="AxlesWeelsEx" type="tns:ArrayOfInt32" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ShippingType" type="tns:CheckResultDataCheckResultDataItemShippingType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckResultDataCheckResultDataItemResolution">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DocumentNumber" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DocumentDateSign" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckResultDataCheckResultDataItemRouteCheck">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="CodeToInt" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckResultDataCheckResultDataItemDimensions">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Width" type="xs:decimal" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Height" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="EnumWriteOffResolution">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="WriteOffSuccessful" />
+          <xs:enumeration value="WriteOffNotSuccessfulTrippOver" />
+          <xs:enumeration value="WriteOffNotSuccessfulDocumentNotFound" />
+          <xs:enumeration value="WriteOffNotSuccessfulWimNotFound" />
+          <xs:enumeration value="WriteOffNotSuccessfulUnknownError" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="CheckResultDataCheckResultDataItemShippingType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="International" />
+          <xs:enumeration value="Interregional" />
+          <xs:enumeration value="Local" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="RASVSR_Check_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check" />
+  </wsdl:message>
+  <wsdl:message name="RASVSR_Check_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="RASVSR_WriteOfTrip_InputMessage">
+    <wsdl:part name="parameters" element="tns:WriteOfTrip" />
+  </wsdl:message>
+  <wsdl:message name="RASVSR_WriteOfTrip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WriteOfTripResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RASVSR">
+    <wsdl:operation name="Check">
+      <wsdl:input message="tns:RASVSR_Check_InputMessage" />
+      <wsdl:output message="tns:RASVSR_Check_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteOfTrip">
+      <wsdl:input message="tns:RASVSR_WriteOfTrip_InputMessage" />
+      <wsdl:output message="tns:RASVSR_WriteOfTrip_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_RASVSR" type="tns:RASVSR">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Check">
+      <soap:operation soapAction="http://tempuri.org/RASVSR/Check" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteOfTrip">
+      <soap:operation soapAction="http://tempuri.org/RASVSR/WriteOfTrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAPRequestService">
+    <wsdl:port name="BasicHttpBinding_RASVSR" binding="tns:BasicHttpBinding_RASVSR">
+      <soap:address location="http://localhost:5050/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
